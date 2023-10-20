@@ -33,3 +33,9 @@ set(
   ${IMGUI_FILE_DLG_PATH}/ImGuiFileDialog.cpp
   ${IMGUI_COLOR_TEXT_EDIT_PATH}/TextEditor.cpp
 )
+add_library("ImGui_impl"
+    ${IMGUI_SRC}
+    )
+target_include_directories("ImGui_impl" PUBLIC ${IMGUI_PATH})
+target_compile_definitions("ImGui_impl" PUBLIC
+  IMGUI_IMPL_OPENGL_LOADER_CUSTOM=<SDL2/SDL_opengl.h>  GL_GLEXT_PROTOTYPES=1)

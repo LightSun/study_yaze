@@ -1,7 +1,7 @@
 #sudo apt install libwavpack-dev
 cmake_minimum_required(VERSION 3.10)
 
-project(uifw VERSION 0.01)
+project(uifw VERSION 1.0)
 
 # C++ Standard Specifications
 set(CMAKE_CXX_STANDARD 17)
@@ -15,12 +15,12 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_MODULE_LINKER_FLAGS \"-Wl,--no-undefined -Wl,--no-undefined\")
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 set(BUILD_SHARED_LIBS ON)
-SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # Abseil Standard Specifications
 set(EXT_DIR ../yaze)
 include(cmake/absl.cmake)
 add_subdirectory(${EXT_DIR}/src/lib/abseil-cpp absl)
+include_directories(${EXT_DIR}/src/lib)
 
 include(cmake/openssl.cmake)
 # Video Libraries
@@ -31,4 +31,4 @@ include(cmake/sdl2.cmake)
 include(cmake/imgui.cmake)
 
 #
-include_directories(src/)
+add_subdirectory(src/)
