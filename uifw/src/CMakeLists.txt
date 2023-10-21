@@ -1,11 +1,11 @@
 
 SET(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(SDL_TARGETS SDL2::SDL2)
+#set(SDL_TARGETS SDL2::SDL2)
 
-if(WIN32 OR MINGW)
-    list(PREPEND SDL_TARGETS SDL2::SDL2main)
-    add_definitions(-DSDL_MAIN_HANDLED)
-endif()
+#if(WIN32 OR MINGW)
+#    list(PREPEND SDL_TARGETS SDL2::SDL2main)
+#    add_definitions(-DSDL_MAIN_HANDLED)
+#endif()
 
 set(
   APP_CORE_SRC
@@ -63,7 +63,7 @@ target_link_libraries(
   ${PNG_LIBRARIES}
   ${CMAKE_DL_LIBS}
   SDL2_mixer
-  ImGui
+ # ImGui
   ImGui_impl
 )
 

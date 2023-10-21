@@ -18,8 +18,8 @@
 #pragma once
 #include "imgui.h"      // IMGUI_IMPL_API
 
-struct SDL_Window;
-struct SDL_Renderer;
+typedef struct SDL_Window SDL_Window;
+typedef struct SDL_Renderer SDL_Renderer;
 typedef union SDL_Event SDL_Event;
 
 IMGUI_IMPL_API bool     ImGui_ImplSDL2_InitForOpenGL(SDL_Window* window, void* sdl_gl_context);

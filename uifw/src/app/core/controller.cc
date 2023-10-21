@@ -173,7 +173,7 @@ absl::Status Controller::CreateWindow() {
         absl::StrFormat("SDL_Init: %s\n", SDL_GetError()));
   } else {
     window_ = std::unique_ptr<SDL_Window, sdl_deleter>(
-        SDL_CreateWindow("Yet Another Zelda3 Editor",  // window title
+        SDL_CreateWindow("中国",  // window title
                          SDL_WINDOWPOS_UNDEFINED,      // initial x position
                          SDL_WINDOWPOS_UNDEFINED,      // initial y position
                          kScreenWidth,                 // width, in pixels
@@ -223,7 +223,8 @@ absl::Status Controller::CreateGuiContext() const {
   static const char *ROBOTO_MEDIUM = "assets/font/Roboto-Medium.ttf";
   static const char *COUSINE_REGULAR = "assets/font/Cousine-Regular.ttf";
   static const char *DROID_SANS = "assets/font/DroidSans.ttf";
-  static const char *NOTO_SANS_JP = "assets/font/NotoSansJP.ttf";
+ // static const char *NOTO_SANS_JP = "assets/font/NotoSansJP.ttf";
+  static const char *NOTO_SANS_JP = "assets/font/GuoZiWenMaiShuFaShiJi-2.ttf";
   static const char *IBM_PLEX_JP = "assets/font/IBMPlexSansJP-Bold.ttf";
   static const float FONT_SIZE_DEFAULT = 14.0f;
   static const float FONT_SIZE_DROID_SANS = 16.0f;

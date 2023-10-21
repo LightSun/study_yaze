@@ -12,12 +12,13 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-set(CMAKE_MODULE_LINKER_FLAGS \"-Wl,--no-undefined -Wl,--no-undefined\")
+set(CMAKE_MODULE_LINKER_FLAGS /"-Wl,--no-undefined -Wl,--no-undefined/")
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 set(BUILD_SHARED_LIBS ON)
 
 # Abseil Standard Specifications
 set(EXT_DIR ../yaze)
+
 include(cmake/absl.cmake)
 add_subdirectory(${EXT_DIR}/src/lib/abseil-cpp absl)
 include_directories(${EXT_DIR}/src/lib)
@@ -27,6 +28,12 @@ include(cmake/openssl.cmake)
 find_package(PNG REQUIRED)
 find_package(OpenGL REQUIRED)
 include(cmake/sdl2.cmake)
+
+set(SDL_TARGETS SDL2::SDL2)
+if(WIN32 OR MINGW)
+    list(PREPEND SDL_TARGETS SDL2::SDL2main)
+    add_definitions(-DSDL_MAIN_HANDLED)
+endif()
 # ImGui
 include(cmake/imgui.cmake)
 

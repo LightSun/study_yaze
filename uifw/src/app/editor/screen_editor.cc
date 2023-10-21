@@ -91,7 +91,7 @@ void ScreenEditor::DrawOverworldMapEditor() {
   END_TAB_ITEM()
 }
 void ScreenEditor::DrawDungeonMapsEditor() {
-  TAB_ITEM("Dungeon Maps")
+  TAB_ITEM("Dungeon Maps中国")
   END_TAB_ITEM()
 }
 
